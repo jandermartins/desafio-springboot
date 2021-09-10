@@ -1,4 +1,4 @@
-package br.compasso.uol.desafiospringboot.controller;
+package br.compasso.uol.desafiospringboot.model;
 
 import javax.persistence.*;
 
