@@ -18,7 +18,6 @@ public class CidadeService {
         return cidadeRepository.findAll();
     }
 
-
     public Cidade addCidade(Cidade cidade) {
         return cidadeRepository.save(cidade);
     }

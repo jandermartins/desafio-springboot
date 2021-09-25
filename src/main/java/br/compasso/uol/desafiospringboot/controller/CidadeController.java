@@ -30,7 +30,6 @@ public class CidadeController {
         return new ResponseEntity<List<Cidade>>((List<Cidade>) cidadeService.getCidades(), HttpStatus.OK);
     }
 
-
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value = "{id}")
     @ResponseBody
     public ResponseEntity<Cidade> editCidade(@RequestBody Cidade cidade, @PathVariable ("id") Integer id){
