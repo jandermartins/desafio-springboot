@@ -3,21 +3,44 @@ package br.compasso.uol.desafiospringboot.controller;
 import br.compasso.uol.desafiospringboot.model.Cidade;
 import br.compasso.uol.desafiospringboot.service.CidadeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @CrossOrigin
 @RequestMapping(value = "/cidade")
-@RestController()
+@RestController
 public class CidadeController {
 
     @Autowired
     private CidadeService cidadeService;
 
-    @RequestMapping(method = RequestMethod.POST, produces =
-            MediaType.APPLICATION_JSON_VALUE)
-    public Cidade addCidade(@RequestBody Cidade cidade){
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Cidade addCidade(@RequestBody Cidade cidade) {
+        System.out.println(cidade.toString());
         return cidadeService.addCidade(cidade);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Cidade>> getCidades(){
+        return new ResponseEntity<List<Cidade>>((List<Cidade>) cidadeService.getCidades(), HttpStatus.OK);
+    }
+
+
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value = "{id}")
+    @ResponseBody
+    public ResponseEntity<Cidade> editCidade(@RequestBody Cidade cidade, @PathVariable ("id") Integer id){
+        if(cidadeService.getCidadeById(id) != null){
+            cidade.setId(id);
+            return new ResponseEntity<Cidade>(cidadeService.editCidade(cidade), HttpStatus.OK);
+        }
+        if(cidadeService.getCidadeById(id) == null){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+        return null;
     }
 }
