@@ -5,6 +5,9 @@ import br.compasso.uol.desafiospringboot.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ClienteService {
 
@@ -12,6 +15,18 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
     public Cliente addCliente(Cliente cliente) {
+        return clienteRepository.save(cliente);
+    }
+
+    public Optional<Cliente> getClienteById(Long id) {
+        return clienteRepository.findById(id);
+    }
+
+    public List<Cliente> getClientes() {
+        return clienteRepository.findAll();
+    }
+
+    public Cliente editCliente(Cliente cliente) {
         return clienteRepository.save(cliente);
     }
 }

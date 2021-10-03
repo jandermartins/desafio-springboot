@@ -3,6 +3,7 @@ package br.compasso.uol.desafiospringboot.model;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "cidade")
 public class Cidade {

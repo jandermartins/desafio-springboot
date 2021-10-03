@@ -36,8 +36,8 @@ public class CidadeController {
         if(cidadeService.getCidadeById(id) != null){
             cidade.setId(id);
             return new ResponseEntity<Cidade>(cidadeService.editCidade(cidade), HttpStatus.OK);
-        }
-        if(cidadeService.getCidadeById(id) == null){
+        }if(cidadeService.getCidadeById(id) == null)
+        {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
         return null;
