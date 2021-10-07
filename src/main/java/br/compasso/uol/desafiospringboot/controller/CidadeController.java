@@ -19,6 +19,16 @@ public class CidadeController {
     @Autowired
     private CidadeService cidadeService;
 
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, value = "{cidade}")
+    public Cidade getCidadePeloNome(@PathVariable String cidade){
+        return cidadeService.getCidadeByNome(cidade);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, value = "/estado/{estado}")
+    public ResponseEntity<List<Cidade>> getCidadePeloEstado(@PathVariable String estado){
+        return new ResponseEntity<List<Cidade>>((List<Cidade>) cidadeService.getCidadeByEstado(estado), HttpStatus.OK);
+    }
+
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Cidade addCidade(@RequestBody Cidade cidade) {
         System.out.println(cidade.toString());

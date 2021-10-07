@@ -29,4 +29,12 @@ public class CidadeService {
     public Cidade getCidadeById(Integer id) {
         return cidadeRepository.findById(id);
     }
+
+    public Cidade getCidadeByNome(String cidade) {
+        return cidadeRepository.getCidadeByNome(cidade);
+    }
+
+    public List<Cidade> getCidadeByEstado(String estado) {
+        return cidadeRepository.getCidadeByEstado(estado);
+    }
 }

@@ -29,4 +29,12 @@ public class ClienteService {
     public Cliente editCliente(Cliente cliente) {
         return clienteRepository.save(cliente);
     }
+
+    public List<Cliente> getClientePeloNome(String nome) {
+        return clienteRepository.findByNome(nome);
+    }
+
+    public void deleteClienteById(Long id) {
+        clienteRepository.deleteById(id);
+    }
 }
