@@ -22,6 +22,10 @@ public class ClienteService {
         return clienteRepository.findById(id);
     }
 
+    public Cliente getClienteById2(Long id){
+        return clienteRepository.findClienteById(id);
+    }
+
     public List<Cliente> getClientes() {
         return clienteRepository.findAll();
     }

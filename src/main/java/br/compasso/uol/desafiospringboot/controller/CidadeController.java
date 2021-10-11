@@ -31,7 +31,6 @@ public class CidadeController {
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Cidade addCidade(@RequestBody Cidade cidade) {
-        System.out.println(cidade.toString());
         return cidadeService.addCidade(cidade);
     }
 
@@ -46,7 +45,8 @@ public class CidadeController {
         if(cidadeService.getCidadeById(id) != null){
             cidade.setId(id);
             return new ResponseEntity<Cidade>(cidadeService.editCidade(cidade), HttpStatus.OK);
-        }if(cidadeService.getCidadeById(id) == null)
+        }
+        if(cidadeService.getCidadeById(id) == null)
         {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
