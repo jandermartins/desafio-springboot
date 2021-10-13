@@ -8,18 +8,54 @@
 		{
 			"name": "POST CLIENTE",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
-				"url": null
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Francisco Jander Soares Martins\",\r\n    \"dataDeNascimento\": \"25/02/1994\",\r\n    \"idade\": 27,\r\n    \"sexo\": \"masculino\",\r\n    \"dataNascimento\": \"25/02/1994\",\r\n    \"idade\": 27,\r\n    \"cidade\": {\r\n        \"id\": 1,\r\n        \"nome\": \"Crateús\",\r\n        \"estado\": \"Ceará\" \r\n    }    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "POST CIDADE",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
-				"url": null
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Crateús\",\r\n    \"estado\": \"Ceará\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cidade",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cidade"
+					]
+				}
 			},
 			"response": []
 		},
@@ -28,7 +64,17 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "localhost:8080/cidade/Crateús",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cidade",
+						"Crateús"
+					]
+				}
 			},
 			"response": []
 		},
@@ -37,7 +83,18 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "localhost:8080/cidade/estado/Ceará",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cidade",
+						"estado",
+						"Ceará"
+					]
+				}
 			},
 			"response": []
 		},
@@ -46,7 +103,17 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "localhost:8080/cliente/Francisco Jander Soares Martins",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"Francisco Jander Soares Martins"
+					]
+				}
 			},
 			"response": []
 		},
@@ -55,25 +122,65 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "localhost:8080/cliente/buscar/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"buscar",
+						"2"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "DELETE CLIENTE",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "localhost:8080/cliente/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"3"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "PUT CLIENTE",
 			"request": {
-				"method": "GET",
+				"method": "PUT",
 				"header": [],
-				"url": null
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Jose Francisco Martins\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cliente/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"4"
+					]
+				}
 			},
 			"response": []
 		}
