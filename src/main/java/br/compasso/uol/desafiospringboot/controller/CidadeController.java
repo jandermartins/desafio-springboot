@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -45,10 +46,6 @@ public class CidadeController {
         if(cidadeService.getCidadeById(id) != null){
             cidade.setId(id);
             return new ResponseEntity<Cidade>(cidadeService.editCidade(cidade), HttpStatus.OK);
-        }
-        if(cidadeService.getCidadeById(id) == null)
-        {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
         return null;
     }
